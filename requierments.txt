@@ -1,0 +1,16 @@
+----- 	-----
+
+Pip		20.1
+pygame	3.8
+time		15.3
+
+Fichier
+----- -------
+
+Goombalabyrinthe.py = fichier principale.
+
+classes.py = fichier directionnel et d'affichage.
+
+Constantes.py = fichier stockage des images.
+
+images = dossier des images.
