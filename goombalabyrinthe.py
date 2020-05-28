@@ -11,10 +11,11 @@ Fichiers : goombalabyrinthe.py, classes.py, constantes.py, lab1, lab2 + images
 
 import pygame
 from app.niveau import Niveau
+from app.perso import Perso
+from app.items import Item
 from pygame.locals import *
 import time
 
-from classes import *
 from constantes import *
 
 pygame.init()
@@ -67,11 +68,11 @@ while continuer:
 				#Lancement du niveau 1
 				if event.key == K_F1:
 					continuer_accueil = 0	#On quitte l'accueil
-					choix = 'lab1'		#On définit le niveau à charger
+					choix = 'data/lab1'		#On définit le niveau à charger
 				#Lancement du niveau 2
 				elif event.key == K_F2:
 					continuer_accueil = 0
-					choix = 'lab2'
+					choix = 'data/lab2'
 			
 		
 
