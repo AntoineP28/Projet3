@@ -10,6 +10,7 @@ Fichiers : goombalabyrinthe.py, classes.py, constantes.py, lab1, lab2 + images
 """
 
 import pygame
+from app.niveau import Niveau
 from pygame.locals import *
 import time
 
