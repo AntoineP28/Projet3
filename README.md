@@ -1,8 +1,12 @@
-# Projet3
+# *Projet3*
 
-Pour installer le jeu, il vous faudra cloner les fichiers.
+                                        **Installation du jeu** 
 
-Vous retrouverez alors le fichier principal goombalabyrinthe.py, il permet l'ouverture de la fenêtre de jeux, chargement de fond, création du personnage,  les touches directionnelles,  affiche des nouvelles positions, ainsi que la victoire et la défaite.
+                        Pour installer le jeu, il vous faudra cloner les fichiers. 
+
+_____________________________________________________________________________________
+
+Vous retrouverez alors le fichier principal goombalabyrinthe.py, il permet l'ouverture de la fenêtre de jeu, chargement de fond, création du personnage,  les touches directionnelles,  affiche des nouvelles positions, ainsi que la victoire et la défaite.
 
 Fichier constantes.py: Vous pourrez retrouver les images enregistrés.
 
@@ -10,7 +14,7 @@ Dans le dossier images: il contient les images dont nous avons besoin pour le je
 
 Dans le dossier env: il contient l'environnement virtuel.
 
-Dans le dossier data: il contient les map pour le jeux goombalabyrinthe.
+Dans le dossier data: il contient les map pour le jeu goombalabyrinthe.
 
 Dans le dossier app: il contient le fichier images, il contient la class items, elle permet de mettre les objets à un endroit aléatoire de la map en fonction du niveau.
 Il contient le fichier niveau, il contient la class niveau, elle permet de parcourir et de lire ligne par ligne la map, de charger les images et calculer la position réelle en pixels.
