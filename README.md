@@ -1,6 +1,6 @@
 # *Projet3*
 
-                                        **Installation du jeu** 
+                                        *Installation du jeu*
 
                         Pour installer le jeu, il vous faudra cloner les fichiers. 
 
