@@ -89,8 +89,8 @@ def main():
 			niveau.afficher(fenetre)
 
 			#character creation
-			gb = Perso("images/goomba_right.png", "images/goomba_left.png", 
-			"images/goomba_up.png", "images/goomba_downs.png", niveau)
+			gb = Perso("images/goomba_droite.png", "images/goomba_gauche.png", 
+			"images/goomba_haut.png", "images/goomba_bas.png", niveau)
 			object1 = Item(piece, niveau)
 			object2 = Item(chest, niveau)
 			object3 = Item(potion, niveau)
@@ -99,7 +99,7 @@ def main():
 		#GAME LOOP
 		while continuer_jeu:
 		
-			#Loop speed limitation
+			#Limitation de vitesse de la boucle
 			pygame.time.Clock().tick(30)
 		
 			for event in pygame.event.get():
@@ -117,13 +117,13 @@ def main():
 						
 					#Touches de déplacement de Goomba
 					elif event.key == K_RIGHT:
-						gb.deplacer('right')
+						gb.deplacer('droite')
 					elif event.key == K_LEFT:
-						gb.deplacer('left')
+						gb.deplacer('gauche')
 					elif event.key == K_UP:
-						gb.deplacer('up')
+						gb.deplacer('haut')
 					elif event.key == K_DOWN:
-						gb.deplacer('downs')	
+						gb.deplacer('bas')	
 				
 			#Affichages aux nouvelles positions
 			fenetre.blit(fund, (0,0))
