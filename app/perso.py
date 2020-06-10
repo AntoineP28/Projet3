@@ -27,13 +27,13 @@ class Perso:
 		#Déplacement vers la droite
 		if direction == 'droite':
 			#Pour ne pas dépasser l'écran
-			if self.case_x < (nombre_sprite_cote - 1):
+			if self.case_x < (number_sprite_size - 1):
 				#On vérifie que la case de destination n'est pas un mur
 				if self.niveau.structure[self.case_y][self.case_x+1] != 'm':
 					#Déplacement d'une case
 					self.case_x += 1
 					#Calcul de la position "réelle" en pixel
-					self.x = self.case_x * taille_sprite
+					self.x = self.case_x * size_sprite
 			#Image dans la bonne direction
 			self.direction = self.droite
 		
@@ -42,7 +42,7 @@ class Perso:
 			if self.case_x > 0:
 				if self.niveau.structure[self.case_y][self.case_x-1] != 'm':
 					self.case_x -= 1
-					self.x = self.case_x * taille_sprite
+					self.x = self.case_x * size_sprite
 			self.direction = self.gauche
 		
 		#Déplacement vers le haut
@@ -50,15 +50,15 @@ class Perso:
 			if self.case_y > 0:
 				if self.niveau.structure[self.case_y-1][self.case_x] != 'm':
 					self.case_y -= 1
-					self.y = self.case_y * taille_sprite
+					self.y = self.case_y * size_sprite
 			self.direction = self.haut
 		
 		#Déplacement vers le bas
 		if direction == 'bas':
-			if self.case_y < (nombre_sprite_cote - 1):
+			if self.case_y < (number_sprite_size - 1):
 				if self.niveau.structure[self.case_y+1][self.case_x] != 'm':
 					self.case_y += 1
-					self.y = self.case_y * taille_sprite
+					self.y = self.case_y * size_sprite
 			self.direction = self.bas
 
 		if self.niveau.structure[self.case_y][self.case_x] == 'i':

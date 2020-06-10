@@ -124,7 +124,7 @@ def main():
 						gb.deplacer('haut')
 					elif event.key == K_DOWN:
 						gb.deplacer('bas')	
-				
+				 
 			#Affichages aux nouvelles positions
 			fenetre.blit(fund, (0,0))
 			niveau.afficher(fenetre)
