@@ -5,11 +5,11 @@
                         Pour installer le jeu, il vous faudra cloner les fichiers. 
                                     Installation des requierments:
 
-                                    - pip install pep8
-                                    - pip install pygame
+                                    - pip install -r requierments.txt
 _____________________________________________________________________________________
 
-                                    
+
+                                    ## Fichier du  jeu                                   
 
 Vous retrouverez alors le fichier principal goombalabyrinthe.py, il permet l'ouverture de la fenêtre de jeu, chargement de fond, création du personnage,  les touches directionnelles,  affiche des nouvelles positions, ainsi que la victoire et la défaite.
 
