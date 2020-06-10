@@ -126,7 +126,7 @@ def main():
 						gb.deplacer('bas')	
 				 
 			#Affichages aux nouvelles positions
-			fenetre.blit(fund, (0,0))
+			fenetre.blit(fond, (0,0))
 			niveau.afficher(fenetre)
 			fenetre.blit(gb.direction, (gb.x, gb.y)) #gb.direction = l'image dans la bonne direction
 			object1.display(fenetre)
