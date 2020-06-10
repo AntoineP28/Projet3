@@ -33,12 +33,12 @@ class Niveau:
 		"""Méthode permettant d'afficher le niveau en fonction 
 		de la liste de structure renvoyée par generer()"""
 		#Chargement des images (seule celle d'arrivée contient de la transparence)
-		mur = pygame.image.load(image_mur).convert()
-		depart = pygame.image.load(image_depart).convert()
-		arrivee = pygame.image.load(image_arrivee).convert_alpha()
-		piece = pygame.image.load(image_pièce).convert()
-		coffre = pygame.image.load(image_coffre).convert()
-		potion = pygame.image.load(image_potion).convert()
+		mur = pygame.image.load(picture_mur).convert()
+		depart = pygame.image.load(picture_depart).convert()
+		arrivee = pygame.image.load(picture_arrivee).convert_alpha()
+		piece = pygame.image.load(picture_pièce).convert()
+		chest = pygame.image.load(picture_chest).convert()
+		potion = pygame.image.load(picture_potion).convert()
 		
 		#On parcourt la liste du niveau
 		num_ligne = 0
@@ -47,8 +47,8 @@ class Niveau:
 			num_case = 0
 			for sprite in ligne:
 				#On calcule la position réelle en pixels
-				x = num_case * taille_sprite
-				y = num_ligne * taille_sprite
+				x = num_case * size_sprite
+				y = num_ligne * size_sprite
 				if sprite == 'm':		   #m = Mur
 					fenetre.blit(mur, (x,y))
 				elif sprite == 'd':		   #d = Départ

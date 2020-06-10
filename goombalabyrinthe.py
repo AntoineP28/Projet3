@@ -21,55 +21,55 @@ from constantes import *
 def main():
 	pygame.init()
 
-	#Ouverture de la fenêtre Pygame (carré : largeur = hauteur)
-	fenetre = pygame.display.set_mode((cote_fenetre, cote_fenetre))
-	#Icone
-	icone = pygame.image.load(image_icone)
-	piece = pygame.image.load(image_pièce).convert_alpha()
-	coffre = pygame.image.load(image_coffre).convert_alpha()
-	potion = pygame.image.load(image_potion).convert_alpha()
-	victoire = pygame.image.load(image_victoire).convert_alpha()
-	défaite = pygame.image.load(image_défaite).convert()
-	pygame.display.set_icon(icone)
-	#Titre
-	pygame.display.set_caption(titre_fenetre)
+	#Opening the Pygame window (square: width = height)
+	fenetre = pygame.display.set_mode((size_window, size_window))
+	#Icon
+	icon = pygame.image.load(picture_icon)
+	piece = pygame.image.load(picture_pièce).convert_alpha()
+	chest = pygame.image.load(picture_chest).convert_alpha()
+	potion = pygame.image.load(picture_potion).convert_alpha()
+	win = pygame.image.load(picture_win).convert_alpha()
+	defeat = pygame.image.load(picture_defeat).convert()
+	pygame.display.set_icon(icon)
+	#Title
+	pygame.display.set_caption(title_window)
 
-	#BOUCLE PRINCIPALE
+	#Main loop
 	continuer = 1
 	while continuer:	
-		#Chargement et affichage de l'écran d'accueil
-		accueil = pygame.image.load(image_accueil).convert()
-		fenetre.blit(accueil, (0,0))
+		#Loading and displaying the home screen
+		home = pygame.image.load(picture_home).convert()
+		fenetre.blit(home, (0,0))
 
-		#Rafraichissement
+		#Refresh
 		pygame.display.flip()
 
-		#On remet ces variables à 1 à chaque tour de boucle
+		#We reset these variables to 1 at each loop turn
 		continuer_jeu = 1
 		continuer_accueil = 1
 
-		#BOUCLE D'ACCUEIL
+		#WELCOME LOOP
 		while continuer_accueil:
 		
-			#Limitation de vitesse de la boucle
+			#Loop speed limitation
 			pygame.time.Clock().tick(30)
 		
 			for event in pygame.event.get():
 			
-				#Si l utilisateur quitte, on met les variables 
-				#de boucle à 0 pour n'en parcourir aucune et fermer
+				#If the user exits, we put the variables 
+				#loop to 0 to step through none and close
 				if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
 					continuer_accueil = 0
 					continuer_jeu = 0
 					continuer = 0 
-					#Variable de choix du niveau
+					#Variable of choice of level
 					choix = 0
 					
 				elif event.type == KEYDOWN:				
 					#Lancement du niveau 1
 					if event.key == K_F1:
-						continuer_accueil = 0	#On quitte l'accueil
-						choix = 'data/lab1'		#On définit le niveau à charger
+						continuer_accueil = 0	#We leave the reception
+						choix = 'data/lab1'		#We define the level to load
 					#Lancement du niveau 2
 					elif event.key == K_F2:
 						continuer_accueil = 0
@@ -77,29 +77,29 @@ def main():
 				
 			
 
-		#on vérifie que le joueur a bien fait un choix de niveau
-		#pour ne pas charger s'il quitte
+		#we check that the player has made a choice of level
+		#to not load if he leaves
 		if choix != 0:
 			#Chargement du fond
-			fond = pygame.image.load(image_fond).convert()
+			fund = pygame.image.load(picture_fund).convert()
 
-			#Génération d'un niveau à partir d'un fichier
+			#Generation of a level from a file
 			niveau = Niveau(choix)
 			niveau.generer()
 			niveau.afficher(fenetre)
 
-			#Création de Goomba
+			#character creation
 			gb = Perso("images/goomba_droite.png", "images/goomba_gauche.png", 
 			"images/goomba_haut.png", "images/goomba_bas.png", niveau)
-			objet1 = Item(piece, niveau)
-			objet2 = Item(coffre, niveau)
-			objet3 = Item(potion, niveau)
+			object1 = Item(piece, niveau)
+			object2 = Item(chest, niveau)
+			object3 = Item(potion, niveau)
 
 					
-		#BOUCLE DE JEU
+		#GAME LOOP
 		while continuer_jeu:
 		
-			#Limitation de vitesse de la boucle
+			#Loop speed limitation
 			pygame.time.Clock().tick(30)
 		
 			for event in pygame.event.get():
@@ -126,24 +126,24 @@ def main():
 						gb.deplacer('bas')	
 				
 			#Affichages aux nouvelles positions
-			fenetre.blit(fond, (0,0))
+			fenetre.blit(fund, (0,0))
 			niveau.afficher(fenetre)
 			fenetre.blit(gb.direction, (gb.x, gb.y)) #gb.direction = l'image dans la bonne direction
-			objet1.display(fenetre)
-			objet2.display(fenetre)
-			objet3.display(fenetre)
+			object1.display(fenetre)
+			object2.display(fenetre)
+			object3.display(fenetre)
 			pygame.display.flip()
 
 			#Victoire -> Retour à l'accueil
 			if niveau.structure[gb.case_y][gb.case_x] == 'a' and gb.compteur == 3:
 				print ("victoire")
-				fenetre.blit(victoire, (25, 25))
+				fenetre.blit(win, (25, 25))
 				pygame.display.flip()
 				time.sleep(3)
 				continuer_jeu = 0
 			elif niveau.structure[gb.case_y][gb.case_x] == 'a' and gb.compteur != 3:
 				print("perdu")
-				fenetre.blit(défaite, (10, 10))
+				fenetre.blit(defeat, (10, 10))
 				pygame.display.flip()
 				time.sleep(3)
 				continuer_jeu = 0
