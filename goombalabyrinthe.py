@@ -89,8 +89,8 @@ def main():
 			niveau.afficher(fenetre)
 
 			#character creation
-			gb = Perso("images/goomba_droite.png", "images/goomba_gauche.png", 
-			"images/goomba_haut.png", "images/goomba_bas.png", niveau)
+			gb = Perso("images/goomba_right.png", "images/goomba_left.png", 
+			"images/goomba_up.png", "images/goomba_downs.png", niveau)
 			object1 = Item(piece, niveau)
 			object2 = Item(chest, niveau)
 			object3 = Item(potion, niveau)
