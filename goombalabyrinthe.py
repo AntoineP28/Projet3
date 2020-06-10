@@ -117,13 +117,13 @@ def main():
 						
 					#Touches de déplacement de Goomba
 					elif event.key == K_RIGHT:
-						gb.deplacer('droite')
+						gb.deplacer('right')
 					elif event.key == K_LEFT:
-						gb.deplacer('gauche')
+						gb.deplacer('left')
 					elif event.key == K_UP:
-						gb.deplacer('haut')
+						gb.deplacer('up')
 					elif event.key == K_DOWN:
-						gb.deplacer('bas')	
+						gb.deplacer('downs')	
 				
 			#Affichages aux nouvelles positions
 			fenetre.blit(fund, (0,0))
