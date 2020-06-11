@@ -12,27 +12,27 @@ class Niveau:
 	def generer(self):
 		"""Méthode permettant de générer le niveau en fonction du fichier.
 		On crée une liste générale, contenant une liste par ligne à afficher"""	
-		#On ouvre le fichier
+		#We open the file
 		with open(self.fichier, "r") as fichier:
 			structure_niveau = []
-			#On parcourt les lignes du fichier
+			#We browse the lines of the file
 			for ligne in fichier:
 				ligne_niveau = []
-				#On parcourt les sprites (lettres) contenus dans le fichier
+				#We browse the sprites (letters) contained in the file
 				for sprite in ligne:
-					#On ignore les "\n" de fin de ligne
+					#We ignore the "\ n" at the end of the line
 					if sprite != '\n':
-						#On ajoute le sprite à la liste de la ligne
+						#We add the sprite to the line list
 						ligne_niveau.append(sprite)
-				#On ajoute la ligne à la liste du niveau
+				#We add the line to the level list
 				structure_niveau.append(ligne_niveau)
-			#On sauvegarde cette structure
+			#We save this structure
 			self.structure = structure_niveau
 
 	def afficher(self, fenetre):
 		"""Méthode permettant d'afficher le niveau en fonction 
 		de la liste de structure renvoyée par generer()"""
-		#Chargement des images (seule celle d'arrivée contient de la transparence)
+		#Loading images (only the arrival one contains transparency)
 		mur = pygame.image.load(picture_mur).convert()
 		depart = pygame.image.load(picture_depart).convert()
 		arrivee = pygame.image.load(picture_arrivee).convert_alpha()
@@ -40,20 +40,20 @@ class Niveau:
 		chest = pygame.image.load(picture_chest).convert()
 		potion = pygame.image.load(picture_potion).convert()
 		
-		#On parcourt la liste du niveau
+		#We browse the level list
 		num_ligne = 0
 		for ligne in self.structure:
-			#On parcourt les listes de lignes
+			#We browse the line lists
 			num_case = 0
 			for sprite in ligne:
-				#On calcule la position réelle en pixels
+				#We calculate the actual position in pixels
 				x = num_case * size_sprite
 				y = num_ligne * size_sprite
-				if sprite == 'm':		   #m = Mur
+				if sprite == 'm':		   #m = wall
 					fenetre.blit(mur, (x,y))
-				elif sprite == 'd':		   #d = Départ
+				elif sprite == 'd':		   #d = Departure
 					fenetre.blit(depart, (x,y))
-				elif sprite == 'a':		   #a = Arrivée
+				elif sprite == 'a':		   #a = Arrival
 					fenetre.blit(arrivee, (x,y))
 				num_case += 1
 			num_ligne += 1
